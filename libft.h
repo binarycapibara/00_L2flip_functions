@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:59:49 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/20 21:35:35 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/21 21:56:59 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_bzero(void *b, size_t len);
@@ -65,5 +66,10 @@ char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 void	ft_putendl(char	const *s);
+void	ft_putnbr(int n);
+void	ft_putchar_fd(char	c,int	fd);
+void	ft_putstr_fd(char	const	*s,int	fd);
+void	ft_putendl_fd(char	const	*s, int	fd);
+void	ft_putnbr_fd(int	n, int	fd);
 
 #endif

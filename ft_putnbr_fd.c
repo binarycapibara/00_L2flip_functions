@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 21:38:50 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/21 21:39:48 by fjenae           ###   ########.fr       */
+/*   Created: 2019/05/21 19:30:12 by fjenae            #+#    #+#             */
+/*   Updated: 2019/05/21 22:57:13 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	ft_print(unsigned int div, unsigned int temp, int n, int counter)
+static	void	ft_print(unsigned int div, unsigned int temp, int n, int counter, int fd)
 {
 	int		i;
 
@@ -22,13 +22,13 @@ static	void	ft_print(unsigned int div, unsigned int temp, int n, int counter)
 			n = n / div;
 			temp = temp % div;
 		    div = div / 10;
-		    ft_putchar(n + 48);
+		    ft_putchar_fd(n + 48, fd);
 		    n = temp;
 		    i++;
 	     }
 }
 
-void	ft_putnbr(int n)
+void	ft_putnbr_fd(int	n, int	fd)
 {
 	unsigned int	div;
 	unsigned int	temp;
@@ -43,7 +43,7 @@ void	ft_putnbr(int n)
 		sign = -1;
 		n = n * -1;
 		temp = temp * -1;
-		ft_putchar('-');
+		write (fd, "-", 1);
 	}
 	while (temp > 10)
 	{
@@ -52,5 +52,6 @@ void	ft_putnbr(int n)
 		counter++;
 	}
 	temp = n;
-	ft_print(div, temp, n, counter);
+	ft_print(div, temp, n, counter, fd);
 }
+
