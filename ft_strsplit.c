@@ -6,11 +6,27 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 18:51:23 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/20 02:13:29 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/23 22:57:03 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static	void	ft_free(char **work)
+{
+	size_t	i;
+
+	i = 0;
+	while (work[i])
+	{
+		free(work[i]);
+		(work)[i] = NULL;
+		i++;
+	}
+	free(work);
+	*work = NULL;
+	work = NULL;
+}
 
 static	char	**ft_typeinchars(char **work, char const *s, char c, size_t co)
 {
@@ -79,14 +95,13 @@ static	char	**ft_words(char **work, char const *s, char c, size_t co)
 	{
 		if (s[i] != c && s[i])
 		{
-			m = 0;
 			while (s[i] != c && s[i])
-			{
-				m++;
-				i++;
-			}
+				i++ && m++;
 			if (!(work[len] = (char *)malloc(sizeof(char) * (m + 1))))
+			{
+				ft_free(work);
 				return (NULL);
+			}
 			len++;
 		}
 		i++;

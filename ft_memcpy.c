@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 19:39:37 by fjenae            #+#    #+#             */
-/*   Updated: 2019/04/22 21:06:41 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/23 21:15:30 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char		*vardest;
 	const char	*varsrc;
 
+	if ((!dst && !src))
+		return (NULL);
 	vardest = (char *)dst;
 	varsrc = (const char *)src;
 	while (n)
