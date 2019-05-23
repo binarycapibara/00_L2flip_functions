@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 19:04:28 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/23 13:55:22 by fjenae           ###   ########.fr       */
+/*   Created: 2019/05/23 16:07:27 by fjenae            #+#    #+#             */
+/*   Updated: 2019/05/23 16:56:39 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!s)
+	if (!alst || !new)
 		return ;
-	write(fd, s, ft_strlen(s));
+	new->next = *alst;
+	*alst = new;
 }

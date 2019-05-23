@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 23:26:17 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/23 14:04:11 by fjenae           ###   ########.fr       */
+/*   Created: 2019/05/23 18:31:36 by fjenae            #+#    #+#             */
+/*   Updated: 2019/05/23 19:10:36 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstnew(void	const *content, size_t content_size)
+t_list*		ft_lstmap(t_list *lst, t_list* (*f)(t_list *elem))
 {
-	t_list *node1;
+	t_list	*root;
+	t_list	*node1;
 
-	if (!(node1 = (t_list *)malloc(sizeof(t_list))))
+	if( !lst || !f)
 		return (NULL);
-	if (!content)
+	if(!(root = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	*(root) = *f(lst);
+	node1 = root;
+	lst = lst->next;
+	while (lst != NULL)
 	{
-		node1->content = NULL;
-		node1->content_size = 0;
-	}
-	else
-	{
-		if (!(node1->content = (t_list *)malloc(content_size)))
-		{
-			free(node1);
+		if(!(node1->next = (t_list*)malloc(sizeof(t_list))))
 			return (NULL);
-		}
-		ft_memcpy(node1->content, content, content_size);
-		node1->content_size = content_size;
+		*(node1->next) = *f(lst);
+		node1 = node1->next;
+		lst = lst->next;
 	}
-	node1->next = NULL;
-	return (node1);
+	return (root);
 }
