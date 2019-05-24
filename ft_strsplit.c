@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 18:51:23 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/23 22:57:03 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/24 19:00:08 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,15 @@ static	char	**ft_words(char **work, char const *s, char c, size_t co)
 	size_t	m;
 	size_t	len;
 
-	i = 0;
+	i = -1;
 	m = 0;
 	len = 0;
-	while (s[i] && (len <= co))
+	while (s[++i] && (len <= co))
 	{
 		if (s[i] != c && s[i])
 		{
-			while (s[i] != c && s[i])
-				i++ && m++;
+			while (s[i] != c && s[i] && m++)
+				i++;
 			if (!(work[len] = (char *)malloc(sizeof(char) * (m + 1))))
 			{
 				ft_free(work);
@@ -104,7 +104,6 @@ static	char	**ft_words(char **work, char const *s, char c, size_t co)
 			}
 			len++;
 		}
-		i++;
 	}
 	return (work);
 }
