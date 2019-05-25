@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 15:08:40 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/20 19:43:23 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 03:09:11 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	char	*ft_print(char *s, int sign, int counter, int n)
 {
 	int				i;
-	unsigned int	temp;
+	size_t			temp;
 
 	if (sign < 0)
 		s[0] = '-';
@@ -24,14 +24,15 @@ static	char	*ft_print(char *s, int sign, int counter, int n)
 		i = 2;
 	else
 		i = 1;
-	while (++i < counter)
+	while (i++ < counter)
 		temp = temp * 10;
 	if (sign < 0)
 		i = 1;
-	i = 0;
+	else
+		i = 0;
 	while (i < counter)
 	{
-		s[i] = (n / temp + 48);
+		s[i] = (n / temp) + 48;
 		n = n % temp;
 		temp = temp / 10;
 		i++;
@@ -47,8 +48,11 @@ char			*ft_itoa(int n)
 	unsigned int	temp;
 	int				sign;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	counter = 0;
 	temp = n;
+	sign = 1;
 	if (n < 0)
 	{
 		sign = -1;

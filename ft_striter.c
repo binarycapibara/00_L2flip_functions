@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 15:03:16 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/09 15:12:42 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/24 21:02:05 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	int		i;
+	size_t		i;
 
-	if (s != NULL)
+	if (s && f)
 	{
 		i = 0;
 		while (s[i])
 		{
-			f(&s[i]);
+			f(s + i);
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 21:38:50 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/23 13:47:52 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:58:28 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ void			ft_putnbr(int n)
 	int				co;
 	int				sign;
 
+	if (n == -2147483648)
+	{
+		ft_putstr("-2147483648");
+		return ;
+	}			
 	temp = n;
 	co = 0;
 	div = 1;
@@ -45,7 +50,7 @@ void			ft_putnbr(int n)
 		temp = temp * -1;
 		ft_putchar('-');
 	}
-	while (temp > 10)
+	while (temp >= 10)
 	{
 		temp = temp / 10;
 		div = div * 10;

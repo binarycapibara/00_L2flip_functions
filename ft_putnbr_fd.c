@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 19:30:12 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/23 14:09:26 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:59:45 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void			ft_putnbr_fd(int n, int fd)
 	int				counter;
 	int				sign;
 
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}	
 	temp = n;
 	counter = 0;
 	div = 1;
@@ -47,7 +52,7 @@ void			ft_putnbr_fd(int n, int fd)
 		temp = temp * -1;
 		write(fd, "-", 1);
 	}
-	while (temp > 10)
+	while (temp >= 10)
 	{
 		temp = temp / 10;
 		div = div * 10;

@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 18:31:36 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/24 18:51:41 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 02:30:04 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	void	ft_del(void *content, size_t content_size)
 {
-	ft_strdel(content);
+	ft_memdel(&content);
 	content_size = 0;
 }
 

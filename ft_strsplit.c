@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 18:51:23 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/24 19:00:08 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 19:11:42 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 static	void	ft_free(char **work)
 {
-	size_t	i;
+int		i;
 
-	i = 0;
+i = 0;
 	while (work[i])
-	{
-		free(work[i]);
-		(work)[i] = NULL;
-		i++;
-	}
-	free(work);
-	*work = NULL;
-	work = NULL;
-}
+		{
+			ft_strdel(&work[i]);
+			i++;
+		}
+		free(work);
+}	
 
 static	char	**ft_typeinchars(char **work, char const *s, char c, size_t co)
 {
 	size_t	i;
 	size_t	m;
 	size_t	len;
-
+	
 	i = 0;
 	m = 0;
 	len = 0;
@@ -53,7 +50,6 @@ static	char	**ft_typeinchars(char **work, char const *s, char c, size_t co)
 		}
 		i++;
 	}
-	work[len] = 0;
 	return (work);
 }
 
@@ -61,23 +57,19 @@ static	size_t	ft_nofwords(char const *s, char c)
 {
 	size_t	i;
 	size_t	co;
-
+	
 	i = 0;
 	co = 0;
 	while (s[i])
 	{
-		if ((s[i - 1] == c) && (s[i] != c))
+		if ((i == 0 || s[i - 1] == c) && (s[i] != c && s[i]))
 		{
 			co++;
 			while (s[i] != c && s[i])
 				i++;
 		}
-		if (!((s[i - 1] == c) && (s[i] != c)))
-		{
-			if ((s[i + 1] == c) && (s[i] != c))
-				co++;
-		}
-		i++;
+		while (s[i] == c)
+			i++;
 	}
 	return (co);
 }
@@ -87,23 +79,25 @@ static	char	**ft_words(char **work, char const *s, char c, size_t co)
 	size_t	i;
 	size_t	m;
 	size_t	len;
-
-	i = -1;
-	m = 0;
+	
+	i = 0;
 	len = 0;
-	while (s[++i] && (len <= co))
+	m = 0;
+	while (s[i] && (len <= co))
 	{
 		if (s[i] != c && s[i])
 		{
-			while (s[i] != c && s[i] && m++)
-				i++;
-			if (!(work[len] = (char *)malloc(sizeof(char) * (m + 1))))
+			while (s[i] != c && s[i])
 			{
-				ft_free(work);
-				return (NULL);
+				i++;
+				m++;
 			}
+			if (!(work[len] = (char *)malloc(sizeof(char) * (m + 1))))
+				return (NULL);
 			len++;
 		}
+		i++;
+		m = 0;
 	}
 	return (work);
 }
@@ -112,13 +106,19 @@ char			**ft_strsplit(char const *s, char c)
 {
 	char	**work;
 	size_t	co;
-
+	
 	if (!s || !c)
 		return (NULL);
 	co = ft_nofwords(s, c);
 	if (!(work = (char **)malloc(sizeof(char *) * (co + 1))))
 		return (NULL);
-	work = ft_words(work, s, c, co);
-	work = ft_typeinchars(work, s, c, co);
+	if(!ft_words(work, s, c, co))
+	{
+		ft_free(work);
+		return (NULL);
+	}
+	ft_typeinchars(work, s, c, co);
+	work[co] = NULL;
 	return (work);
 }
+
