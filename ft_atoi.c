@@ -6,23 +6,23 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 18:16:46 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 02:40:58 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/26 04:29:40 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	ft_of(long c, const char *str, int sign, int i)
+static	int	ft_of(long c, const char *str, int sign, long i)
 {
-	long	check;
-	long	comp;
-	long	orig;
+	long int	check;
+	long int	comp;
+	long int	orig;
 
 	check = (long)c;
 	comp = (long)c;
 	orig = (long)c;
-	check = (check * 10) + (str[i] - '0');
-	comp = (((check - (str[i] - '0')) / 10));
+	check = (check * 10) + (long)(str[i] - '0');
+	comp = ((check - ((long)(str[i] - '0'))) / 10);
 	if (comp == orig)
 		return (1);
 	else
@@ -38,7 +38,7 @@ int			ft_atoi(const char *str)
 {
 	long	res;
 	int		sign;
-	int		i;
+	long	i;
 
 	res = 0;
 	sign = +1;
@@ -53,9 +53,9 @@ int			ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		res = res * 10 + (str[i] - '0');
 		if (ft_of(res, str, sign, i) == 0 || ft_of(res, str, sign, i) == -1)
 			return (ft_of(res, str, sign, i));
-		res = res * 10 + (str[i] - '0');
 		i++;
 	}
 	return ((int)(res * sign));

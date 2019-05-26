@@ -6,7 +6,7 @@
 #    By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/21 15:52:29 by fjenae            #+#    #+#              #
-#    Updated: 2019/05/23 18:48:13 by fjenae           ###   ########.fr        #
+#    Updated: 2019/05/26 05:37:11 by fjenae           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_st
 ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c \
 ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
+ft_isspace.c ft_power.c ft_sqrt.c ft_lstfinal.c ft_maxoftwo.c ft_minoftwo.c
 
 INCLUDES = -I.
 
