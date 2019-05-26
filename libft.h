@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:59:49 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 05:37:30 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/26 19:57:02 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,9 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void(*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list*(*f)(t_list *elem));
 int					ft_isspace(int c);
-int					ft_power(int i, int n);
-long 				ft_sqrt(long n);
-t_list				*ft_lstfinal(t_list *lst);
 int					ft_maxoftwo(int i, int m);
 int					ft_minoftwo(int i, int m);
+int					ft_power(int i, int n);
+long				ft_sqrt(long n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 05:28:06 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 05:30:13 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/26 19:46:28 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int		ft_maxoftwo(int i, int m)
 {
-	if (i = m)
-		return (NULL);
+	if (i == m)
+		return (i);
 	if (i > m)
 		return (i);
 	else
 		return (m);
 }
-

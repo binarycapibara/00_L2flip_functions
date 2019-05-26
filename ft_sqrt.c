@@ -6,16 +6,16 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 05:19:54 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 05:22:55 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/26 19:56:49 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long 		ft_sqrt(long n)
+long	ft_sqrt(long n)
 {
 	long	i;
-	
+
 	i = 1;
 	while (i < (n / 2))
 	{
@@ -23,4 +23,5 @@ long 		ft_sqrt(long n)
 			return (i);
 		i++;
 	}
+	return (0);
 }
