@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:59:49 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 19:57:02 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/26 23:49:44 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,10 @@ int					ft_maxoftwo(int i, int m);
 int					ft_minoftwo(int i, int m);
 int					ft_power(int i, int n);
 long				ft_sqrt(long n);
+int					ft_islower(int c);
+int					ft_isupper(int c);
+int					ft_isxdigit(int c);
+int					ft_str_is_lowercase(char *str);
+int					ft_str_is_uppercase(char *str);
 
 #endif

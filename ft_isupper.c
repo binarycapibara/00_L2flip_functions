@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfinal.c                                      :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 05:21:55 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 05:39:34 by fjenae           ###   ########.fr       */
+/*   Created: 2019/05/26 23:40:17 by fjenae            #+#    #+#             */
+/*   Updated: 2019/05/26 23:53:12 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list			*ft_lstfinal(t_list *lst)
+int		ft_isupper(int c)
 {
-while (lst->next != NULL)
-	lst = lst->next;
+	if (c >= 65 && c <= 90)
+		return (1);
+	return (0);
 }

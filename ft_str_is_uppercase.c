@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 05:19:54 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 23:34:05 by fjenae           ###   ########.fr       */
+/*   Created: 2019/05/26 23:46:56 by fjenae            #+#    #+#             */
+/*   Updated: 2019/05/26 23:54:22 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_sqrt(long n)
+int		ft_str_is_uppercase(char *str)
 {
-	long	i;
+	int i;
+	int count;
 
-	i = 1;
-	if (n == 0)
+	if (str == NULL)
 		return (0);
-	if (n == 1)
-		return (1);
-	while (i < (n / 2))
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
 	{
-		if ((i * i) == n)
-			return (i);
+		if (ft_isupper(str[i]))
+			count++;
 		i++;
 	}
+	if (i == count)
+		return (1);
 	return (0);
 }
