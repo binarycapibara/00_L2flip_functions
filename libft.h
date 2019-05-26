@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 15:59:49 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/26 23:49:44 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/27 01:49:53 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ typedef struct		s_list
 }					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);
-void				*ft_bzero(void *b, size_t len);
+void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -88,7 +87,6 @@ t_list				*ft_lstmap(t_list *lst, t_list*(*f)(t_list *elem));
 int					ft_isspace(int c);
 int					ft_maxoftwo(int i, int m);
 int					ft_minoftwo(int i, int m);
-int					ft_power(int i, int n);
 long				ft_sqrt(long n);
 int					ft_islower(int c);
 int					ft_isupper(int c);

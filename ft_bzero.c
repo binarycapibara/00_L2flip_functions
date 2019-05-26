@@ -6,24 +6,23 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/21 18:02:28 by fjenae            #+#    #+#             */
-/*   Updated: 2019/04/22 18:34:21 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/27 01:45:52 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *b, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char *dst;
 
-	dst = b;
-	if (len == 0)
-		return (0);
-	while (len)
+	dst = s;
+	if (n == 0)
+		return ;
+	while (n)
 	{
 		*dst = '\0';
 		dst++;
-		len--;
+		n--;
 	}
-	return (b);
 }
