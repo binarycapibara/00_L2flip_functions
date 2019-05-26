@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 14:02:44 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/09 14:20:57 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/26 00:49:17 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strnew(size_t size)
 {
 	char	*array;
 
+	if (size > 2147483647)
+		return (NULL);
 	if ((array = (void*)malloc(size + 1)) == NULL)
 		return (NULL);
 	else

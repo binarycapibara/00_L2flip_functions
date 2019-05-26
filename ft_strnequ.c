@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 19:04:45 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/24 20:58:13 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 22:56:43 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 	if (s1 == NULL || s2 == NULL)
 		return (0);
 	i = 0;
-	while (s1[i] && s2[i] && i < n)
+	while ((s1[i] || s2[i]) && i < n)
 	{
 		if (s1[i] == s2[i])
 			i++;

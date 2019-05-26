@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 17:08:51 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/24 20:06:00 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 20:17:47 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	lenl = ft_strlen(h);
 	lens = ft_strlen(n);
 	if (lens == 0)
-		return (h);	
+		return (h);
 	return (ft_core(h, n, len, lenl));
 }

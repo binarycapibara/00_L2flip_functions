@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 18:50:53 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/24 20:45:43 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 20:16:06 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_strequ(char const *s1, char const *s2)
 {
 	int		i;
-	
+
 	if (s1 == NULL || s2 == NULL)
 		return (0);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 18:51:23 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/25 19:11:42 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 20:22:48 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static	void	ft_free(char **work)
 {
-int		i;
+	int		i;
 
-i = 0;
+	i = 0;
 	while (work[i])
-		{
-			ft_strdel(&work[i]);
-			i++;
-		}
-		free(work);
-}	
+	{
+		ft_strdel(&work[i]);
+		i++;
+	}
+	free(work);
+}
 
 static	char	**ft_typeinchars(char **work, char const *s, char c, size_t co)
 {
 	size_t	i;
 	size_t	m;
 	size_t	len;
-	
+
 	i = 0;
 	m = 0;
 	len = 0;
@@ -57,7 +57,7 @@ static	size_t	ft_nofwords(char const *s, char c)
 {
 	size_t	i;
 	size_t	co;
-	
+
 	i = 0;
 	co = 0;
 	while (s[i])
@@ -79,7 +79,7 @@ static	char	**ft_words(char **work, char const *s, char c, size_t co)
 	size_t	i;
 	size_t	m;
 	size_t	len;
-	
+
 	i = 0;
 	len = 0;
 	m = 0;
@@ -106,13 +106,13 @@ char			**ft_strsplit(char const *s, char c)
 {
 	char	**work;
 	size_t	co;
-	
+
 	if (!s || !c)
 		return (NULL);
 	co = ft_nofwords(s, c);
 	if (!(work = (char **)malloc(sizeof(char *) * (co + 1))))
 		return (NULL);
-	if(!ft_words(work, s, c, co))
+	if (!ft_words(work, s, c, co))
 	{
 		ft_free(work);
 		return (NULL);
@@ -121,4 +121,3 @@ char			**ft_strsplit(char const *s, char c)
 	work[co] = NULL;
 	return (work);
 }
-

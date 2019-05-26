@@ -6,20 +6,30 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 19:30:12 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/25 18:59:45 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 22:26:48 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	ft_print(unsigned int div, int n, int counter, int fd)
+static	void	ft_print(unsigned int n, int co, int sign, int fd)
 {
 	int				i;
-	unsigned	int	temp;
+	unsigned int	temp;
+	unsigned int	div;
 
-	temp = n;
 	i = 0;
-	while (i <= counter)
+	div = 1;
+	while (i < co)
+	{
+		div = div * 10;
+		i++;
+	}
+	temp = n;
+	if (sign < 0)
+		ft_putchar_fd('-', fd);
+	i = 0;
+	while (i <= co)
 	{
 		n = n / div;
 		temp = temp % div;
@@ -34,29 +44,23 @@ void			ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	div;
 	unsigned int	temp;
-	int				counter;
+	int				co;
 	int				sign;
 
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}	
-	temp = n;
-	counter = 0;
+	co = 0;
 	div = 1;
+	sign = 0;
 	if (n < 0)
 	{
 		sign = -1;
-		n = n * -1;
-		temp = temp * -1;
-		write(fd, "-", 1);
+		temp = -n;
 	}
-	while (temp >= 10)
+	else
+		temp = n;
+	while (temp / div >= 10)
 	{
-		temp = temp / 10;
 		div = div * 10;
-		counter++;
+		co++;
 	}
-	ft_print(div, n, counter, fd);
+	ft_print(temp, co, sign, fd);
 }

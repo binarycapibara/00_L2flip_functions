@@ -6,16 +6,28 @@
 /*   By: fjenae <fjenae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 21:38:50 by fjenae            #+#    #+#             */
-/*   Updated: 2019/05/25 18:58:28 by fjenae           ###   ########.fr       */
+/*   Updated: 2019/05/25 22:34:06 by fjenae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	ft_print(unsigned int div, unsigned int temp, int n, int co)
+static void		ft_print(unsigned int n, int co, int sign)
 {
 	int				i;
+	unsigned int	temp;
+	unsigned int	div;
 
+	i = 0;
+	div = 1;
+	while (i < co)
+	{
+		div = div * 10;
+		i++;
+	}
+	temp = n;
+	if (sign < 0)
+		ft_putchar('-');
 	i = 0;
 	while (i <= co)
 	{
@@ -35,27 +47,20 @@ void			ft_putnbr(int n)
 	int				co;
 	int				sign;
 
-	if (n == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return ;
-	}			
-	temp = n;
 	co = 0;
 	div = 1;
+	sign = 0;
 	if (n < 0)
 	{
 		sign = -1;
-		n = n * -1;
-		temp = temp * -1;
-		ft_putchar('-');
+		temp = -n;
 	}
-	while (temp >= 10)
+	else
+		temp = n;
+	while (temp / div >= 10)
 	{
-		temp = temp / 10;
 		div = div * 10;
 		co++;
 	}
-	temp = n;
-	ft_print(div, temp, n, co);
+	ft_print(temp, co, sign);
 }
